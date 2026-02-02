@@ -31,28 +31,28 @@ public class moracchini_mod3_csd402 { // Class name matches file name
                 System.out.print(powerOfTwo(i));    // Print 2^i
             }
 
-            // Decreasing side: 2^(row-1), ..., 1
+            // Decreasing side: 2^(row-1), ..., 2, 1
             for (int i = row - 1; i >= 0; i--) {    // Print powers of two in decreasing order
                 System.out.print(" ");           // Print space before the number
                 System.out.print(powerOfTwo(i));   // Print 2^i
             }
 
-            // Pad spaces so '@' is aligned vertically.
+            // Aligning '@' symbol
             int currentLen = indent + rowNumbersLength(row); // Current length of printed content
             int spacesToAt = targetAtColumn - currentLen;    // Calculate spaces needed to align '@'
             printSpaces(spacesToAt);                         // Print spaces to align '@'
 
-            // Required '@' at end of each line
+            // Required '@' at the end of each line
             System.out.println("@"); 
         }
     }
 
-    // Returns the number of leading spaces for a given row (2 spaces per indent level).
+    // Returns the number of leading spaces for a given row.
     private static int rowIndent(int row, int totalRows) {  // Calculate indentation
         return 2 * (totalRows - 1 - row);                   // 2 spaces per level of indentation
     }
 
-    // Returns the length (in characters) of the numbers portion for a row when printed with single spaces.
+    // Returns the total length of numbers and spaces in a given row.
     // Example row 3: "1 2 4 8 4 2 1"
     private static int rowNumbersLength(int row) {  // Calculate length of numbers in the row
         int numbersCount = 2 * row + 1;             // Total numbers in the row
@@ -73,7 +73,7 @@ public class moracchini_mod3_csd402 { // Class name matches file name
         return digitsSum + spacesBetweenNumbers;        // Total length = digits + spaces
     }
 
-    // Returns the number of digits in a positive integer.
+    // Returns the number of digits in a given integer value.
     private static int digits(int value) {
         int count = 0;                          // Initialize digit count   
         do {                                    // Count digits using division   
@@ -83,14 +83,14 @@ public class moracchini_mod3_csd402 { // Class name matches file name
         return count;                           // Return total digit count
     }
 
-    // Prints a specific number of spaces using a for loop.
+    // Prints a specified number of spaces.
     private static void printSpaces(int count) {  
         for (int i = 0; i < count; i++) {           
             System.out.print(" ");               
         }
     }
 
-    // Returns 2^exp using a loop,
+    // Returns 2 raised to the power of exp.
     private static int powerOfTwo(int exp) {     // Calculate 2^exp
         int result = 1;                          // Initialize result    
         for (int i = 0; i < exp; i++) {          // Loop exp times
